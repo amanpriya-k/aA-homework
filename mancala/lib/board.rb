@@ -23,7 +23,7 @@ class Board
   end
 
   def make_move(start_pos, current_player_name)
-    
+  
   end
 
   def next_turn(ending_cup_idx)
