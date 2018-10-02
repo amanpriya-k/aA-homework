@@ -8,17 +8,33 @@ document.addEventListener('DOMContentLoaded', () => {
   const preloadedState = localStorage.state ?
     JSON.parse(localStorage.state) : {};
   const store = configureStore(preloadedState);
-  store.dispatch = addLoggingToDispatch(store);
+  // store.dispatch = addLoggingToDispatch(store);
+  store = applyMiddlewares(store, addLoggingToDispatch);
   const root = document.getElementById('content');
   ReactDOM.render(<Root store={store} />, root);
 });
 
-function addLoggingToDispatch(store) {
-  const dispatch = store.dispatch;
-  return (action) => {
-    console.log('old state: ',store.getState());
-    console.log(action);
-    dispatch(action);
-    console.log('new state: ',store.getState());
-  }
+// function addLoggingToDispatch(store) {
+//   const dispatch = store.dispatch;
+//   return (action) => {
+//     console.log('old state: ',store.getState());
+//     console.log(action);
+//     dispatch(action);
+//     console.log('new state: ',store.getState());
+//   }
+// }
+
+const addLoggingToDispatch = store => next => action => {
+  console.log(store.getState());
+  console.log(action);
+  next(action);
+  console.log(store.getState());
+}
+
+const applyMiddlewares = (store, ...middlewares) => {
+  let dispatch = store.dispatch;
+  middlewares.forEach(
+    (middleware) => (dispatch = middleware(store)(dispatch))
+  );
+  return Object.assign({}, store, { dispatch });
 }
