@@ -137,12 +137,12 @@ var Blue = function (_React$Component) {
         null,
         _react2.default.createElement('h2', { className: 'blue' }),
         _react2.default.createElement(
-          _reactRouterDom.Link,
-          { to: '/blue' },
+          _reactRouterDom.NavLink,
+          { exact: true, to: '/blue' },
           'only blue'
         ),
         _react2.default.createElement(
-          _reactRouterDom.Link,
+          _reactRouterDom.NavLink,
           { to: '/blue/indigo' },
           'blue + indigo'
         ),
@@ -323,22 +323,22 @@ var Rainbow = function (_React$Component) {
           'Rainbow Router!'
         ),
         _react2.default.createElement(
-          _reactRouterDom.Link,
+          _reactRouterDom.NavLink,
           { to: '/red' },
           'red'
         ),
         _react2.default.createElement(
-          _reactRouterDom.Link,
+          _reactRouterDom.NavLink,
           { to: '/green' },
           'green'
         ),
         _react2.default.createElement(
-          _reactRouterDom.Link,
+          _reactRouterDom.NavLink,
           { to: '/blue' },
           'blue'
         ),
         _react2.default.createElement(
-          _reactRouterDom.Link,
+          _reactRouterDom.NavLink,
           { to: '/violet' },
           'violet'
         ),
@@ -418,17 +418,17 @@ var Red = function (_React$Component) {
         null,
         _react2.default.createElement('h2', { className: 'red' }),
         _react2.default.createElement(
-          _reactRouterDom.Link,
-          { to: '/red' },
+          _reactRouterDom.NavLink,
+          { exact: true, to: '/red' },
           'only red'
         ),
         _react2.default.createElement(
-          _reactRouterDom.Link,
+          _reactRouterDom.NavLink,
           { to: '/red/orange' },
           'red + orange'
         ),
         _react2.default.createElement(
-          _reactRouterDom.Link,
+          _reactRouterDom.NavLink,
           { to: '/red/yellow' },
           'red + yellow'
         ),
